@@ -42,4 +42,6 @@ docker run --rm -it -p 9010:8081 -u gradle -v $(pwd):/home/gradle/project -w /ho
 
 ### Run Jar
 docker run --rm -it -p 9010:8081 -u gradle -v $(pwd):/home/gradle/project -w /home/gradle/project gradle gradle bootRun &
+
+curl -X GET 'http://localhost:9081/rest/mscovid/test?msg=testing'
 ```
