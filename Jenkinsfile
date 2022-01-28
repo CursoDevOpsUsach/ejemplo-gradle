@@ -1,21 +1,13 @@
 pipeline {
     agent any
     environment {
-        NEXUS_USER         = credentials('nexus-user')
-        NEXUS_PASSWORD     = credentials('nexus-password')
+        NEXUS_USER         = credentials('user-nexus')
+        NEXUS_PASSWORD     = credentials('password-nexus')
     }
     stages {
         stage("Pipeline"){
             steps {
                 script{
-                    stage("Paso 0: Download Code and checkout"){
-                        checkout(
-                            [$class: 'GitSCM',
-                            //Acá reemplazar por el nonbre de branch
-                            branches: [[name: "feature/gradle " ]],
-                            //Acá reemplazar por su propio repositorio
-                            userRemoteConfigs: [[url: 'https://github.com/tundervirld/ejemplo-gradle.git']]])
-                    }
                     stage("Paso 1: Build && Test"){
                         sh "echo 'Build && Test!'"
                         sh "gradle clean build"
