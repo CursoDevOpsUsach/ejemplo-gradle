@@ -30,4 +30,11 @@ pipeline {
             }
         }
     }
+    post{
+        success {
+            slackSend color: 'good', message: "[duribef] [${JOB_NAME}] [compileTool] Ejecucion Exitosa", teamDomain: 'dipdevopsusac-tr94431', tokenCredentialId: 'slack-grupo5'
+        }
+        failure {
+            slackSend color: 'danger', message: "[duribef] [${JOB_NAME}] [compileTool] Ejecucion fallida en stage [${BUILD_ID}]", teamDomain: 'dipdevopsusac-tr94431', tokenCredentialId: 'slack-grupo5'
+        }
 }
