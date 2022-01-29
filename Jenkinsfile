@@ -37,4 +37,5 @@ pipeline {
         failure {
             slackSend color: 'danger', message: "[duribef] [${JOB_NAME}] [compileTool] Ejecucion fallida en stage [${BUILD_ID}]", teamDomain: 'dipdevopsusac-tr94431', tokenCredentialId: 'slack-grupo5'
         }
+        }
 }
